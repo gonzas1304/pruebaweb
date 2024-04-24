@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interfaz con Iconos de Opciones</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-MKi5Tzj3UsW+VbWPUe99A1EdkCZdPt+kxJ2Sm+YeF+P5kZGgL+uuWImd5cEXKtSWnZG9S5p3s1AcV4U7QLO3+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+  /* Estilos adicionales */
+    .options-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    .option {
+      text-align: center;
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid #da0000;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .option:hover {
+      background-color: #ee0000;
+    }
+    .content {
+      display: none;
+      margin-top: 20px;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Selecciona una opción:</h1>
+
+  <div class="options-container">
+    <div class="option" onclick="mostrarContenido('contenido1')">
+      <i class="fas fa-home fa-3x"></i>
+      <p>Inicio</p>
+    </div>
+    <div class="option" onclick="mostrarContenido('contenido2')">
+      <i class="fas fa-search fa-3x"></i>
+      <p>Buscar</p>
+    </div>
+    <div class="option" onclick="mostrarContenido('contenido3')">
+      <i class="fas fa-user fa-3x"></i>
+      <p>Perfil</p>
+    </div>
+    <div class="option" onclick="mostrarContenido('contenido4')">
+      <i class="fas fa-cog fa-3x"></i>
+      <p>Configuración</p>
+    </div>
+  </div>
+
+  <div id="contenido1" class="content">
+    <h2>Contenido del Inicio</h2>
+    <p>Este es el contenido correspondiente a la opción de Inicio.</p>
+  </div>
+  <div id="contenido2" class="content">
+    <h2>Contenido de Búsqueda</h2>
+    <p>Este es el contenido correspondiente a la opción de Búsqueda.</p>
+  </div>
+  <div id="contenido3" class="content">
+    <h2>Contenido del Perfil</h2>
+    <p>Este es el contenido correspondiente a la opción de Perfil.</p>
+  </div>
+  <div id="contenido4" class="content">
+    <h2>Contenido de Configuración</h2>
+    <p>Este es el contenido correspondiente a la opción de Configuración.</p>
+  </div>
+
+  <script>
+    function mostrarContenido(id) {
+      // Oculta todos los contenidos
+      var contenidos = document.querySelectorAll('.content');
+      contenidos.forEach(function(element) {
+        element.classList.remove('active');
+      });
+      
+      // Muestra el contenido correspondiente al ID dado
+      var contenido = document.getElementById(id);
+      contenido.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
